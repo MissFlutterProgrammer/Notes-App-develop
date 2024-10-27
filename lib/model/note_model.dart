@@ -6,13 +6,14 @@ class Note {
   String? dateTimeCreated;
   bool? isFavorite;
 
-  Note(
-      {this.id,
-      this.title,
-      this.content,
-      this.dateTimeEdited,
-      this.dateTimeCreated,
-      this.isFavorite});
+  Note({
+    this.id,
+    this.title,
+    this.content,
+    this.dateTimeEdited,
+    this.dateTimeCreated,
+    this.isFavorite,
+  });
 
   Map<String, dynamic> toJson() {
     return {

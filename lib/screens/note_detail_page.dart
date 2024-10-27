@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:notes_app/routing/app_routes.dart';
-
 import '../controller/note_controller.dart';
 import '../widgets/alert_dialog.dart';
 
 class NoteDetailPage extends StatelessWidget {
   final NoteController controller = Get.find();
+
+  NoteDetailPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -82,9 +83,7 @@ class NoteDetailPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10),
                   SelectableText(
                     controller.notes[i].title!,
                     style: const TextStyle(
@@ -92,9 +91,7 @@ class NoteDetailPage extends StatelessWidget {
                       fontWeight: FontWeight.w900,
                     ),
                   ),
-                  const SizedBox(
-                    height: 15,
-                  ),
+                  const SizedBox(height: 15),
                   Text(
                     "Last Edited : ${controller.notes[i].dateTimeEdited}",
                     style: TextStyle(
@@ -103,18 +100,14 @@ class NoteDetailPage extends StatelessWidget {
                       color: Colors.grey[600],
                     ),
                   ),
-                  const SizedBox(
-                    height: 15,
-                  ),
+                  const SizedBox(height: 15),
                   SelectableText(
                     controller.notes[i].content!,
                     style: const TextStyle(
                       fontSize: 22,
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10),
                 ],
               ),
             ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../constants/colors.dart';
 import '../controller/note_controller.dart';
 import 'note_detail_page.dart';
@@ -12,10 +11,14 @@ class Search extends SearchDelegate {
   List<Widget> buildActions(BuildContext context) {
     return [
       IconButton(
-          onPressed: () {
-            query = "";
-          },
-          icon: const Icon(Icons.clear, color: Colors.black))
+        onPressed: () {
+          query = "";
+        },
+        icon: const Icon(
+          Icons.clear,
+          color: Colors.black,
+        ),
+      )
     ];
   }
 
@@ -25,14 +28,15 @@ class Search extends SearchDelegate {
   @override
   Widget buildLeading(BuildContext context) {
     return IconButton(
-        onPressed: () {
-          Get.back();
-        },
-        icon: AnimatedIcon(
-          icon: AnimatedIcons.menu_arrow,
-          progress: transitionAnimation,
-          color: Colors.black,
-        ));
+      onPressed: () {
+        Get.back();
+      },
+      icon: AnimatedIcon(
+        icon: AnimatedIcons.menu_arrow,
+        progress: transitionAnimation,
+        color: Colors.black,
+      ),
+    );
   }
 
   @override
@@ -56,53 +60,53 @@ class Search extends SearchDelegate {
         itemCount: suggestionList.length,
         itemBuilder: (context, index) {
           return GestureDetector(
-              onTap: () {
-                Get.to(
-                  NoteDetailPage(),
-                  arguments: index,
-                );
-              },
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 5),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColor.grayColor,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  padding: const EdgeInsets.all(15),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        controller.notes[index].title!,
-                        style: const TextStyle(
-                            fontSize: 21,
-                            fontWeight: FontWeight.bold,
-                            color: AppColor.textColor),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        suggestionList[index].content!,
-                        style: const TextStyle(
-                            fontSize: 18, color: AppColor.textColor),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        controller.notes[index].dateTimeEdited!,
-                      ),
-                    ],
-                  ),
+            onTap: () {
+              Get.to(
+                NoteDetailPage(),
+                arguments: index,
+              );
+            },
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: AppColor.grayColor,
+                  borderRadius: BorderRadius.circular(10),
                 ),
-              ));
+                padding: const EdgeInsets.all(15),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      controller.notes[index].title!,
+                      style: const TextStyle(
+                        fontSize: 21,
+                        fontWeight: FontWeight.bold,
+                        color: AppColor.textColor,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      suggestionList[index].content!,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        color: AppColor.textColor,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      controller.notes[index].dateTimeEdited!,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
         },
       ),
     );
@@ -110,7 +114,6 @@ class Search extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    // TODO: implement buildResults
     throw UnimplementedError();
   }
 }

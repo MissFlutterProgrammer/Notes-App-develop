@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:notes_app/model/note_model.dart';
 import 'package:share/share.dart';
-
 import '../database_helper/database_helper.dart';
 import '../routing/app_routes.dart';
 
@@ -31,7 +30,8 @@ class NoteController extends GetxController {
       content: content,
       dateTimeEdited: DateFormat("dd-MM-yyyy hh:mm a").format(DateTime.now()),
       dateTimeCreated: DateFormat("dd-MM-yyyy hh:mm a").format(DateTime.now()),
-        isFavorite: false);
+      isFavorite: false,
+    );
     await DatabaseHelper.instance.addNote(note);
     titleController.text = "";
     contentController.text = "";

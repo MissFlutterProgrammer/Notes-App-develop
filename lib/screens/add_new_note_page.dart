@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:notes_app/constants/colors.dart';
 import 'package:notes_app/widgets/toast.dart';
-
 import '../controller/note_controller.dart';
 
 class AddNewNotePage extends StatelessWidget {
   final NoteController controller = Get.find();
+
+  AddNewNotePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -53,9 +54,7 @@ class AddNewNotePage extends StatelessWidget {
                 autofocus: true,
               ),
               TextField(
-                style: const TextStyle(
-                  fontSize: 22,
-                ),
+                style: const TextStyle(fontSize: 22),
                 controller: controller.contentController,
                 decoration: const InputDecoration(
                   hintText: "Type note here...",
@@ -87,10 +86,11 @@ class AddNewNotePage extends StatelessWidget {
           "Save Note",
           textAlign: TextAlign.center,
           style: TextStyle(
-              fontSize: 16,
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w500,
-              color: Colors.white),
+            fontSize: 16,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w500,
+            color: Colors.white,
+          ),
         ),
         icon: const Icon(
           Icons.save,

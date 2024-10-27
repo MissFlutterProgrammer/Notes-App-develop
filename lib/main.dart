@@ -9,15 +9,20 @@ main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: Colors.white,
-    ));
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.white,
+      ),
+    );
     return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: "Note App by flutter",
-        initialRoute: AppRoute.HOME,
-        getPages: getRoutes);
+      debugShowCheckedModeBanner: false,
+      title: "Note App by flutter",
+      initialRoute: AppRoute.HOME,
+      getPages: getRoutes,
+    );
   }
 }

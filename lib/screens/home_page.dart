@@ -3,13 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:notes_app/routing/app_routes.dart';
 import 'package:notes_app/screens/search_screen.dart';
-
 import '../constants/colors.dart';
 import '../controller/note_controller.dart';
 import '../widgets/alert_dialog.dart';
 
 class HomePage extends StatelessWidget {
   final controller = Get.put(NoteController());
+
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,10 @@ class HomePage extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.search),
             onPressed: () {
-              showSearch(context: context, delegate: Search());
+              showSearch(
+                context: context,
+                delegate: Search(),
+              );
             },
           ),
           PopupMenuButton(
@@ -82,10 +86,11 @@ class HomePage extends StatelessWidget {
           "Add new note",
           textAlign: TextAlign.center,
           style: TextStyle(
-              fontSize: 16,
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w500,
-              color: Colors.white),
+            fontSize: 16,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w500,
+            color: Colors.white,
+          ),
         ),
         icon: const Icon(
           Icons.add,
@@ -109,7 +114,10 @@ class HomePage extends StatelessWidget {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                Get.toNamed(AppRoute.NOTE_DETAILS, arguments: index);
+                Get.toNamed(
+                  AppRoute.NOTE_DETAILS,
+                  arguments: index,
+                );
               },
               onLongPress: () {
                 showDialog(
@@ -148,36 +156,35 @@ class HomePage extends StatelessWidget {
                             Text(
                               controller.notes[index].title!,
                               style: const TextStyle(
-                                  fontSize: 21,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColor.textColor),
+                                fontSize: 21,
+                                fontWeight: FontWeight.bold,
+                                color: AppColor.textColor,
+                              ),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                             ),
-                            const SizedBox(
-                              height: 10,
-                            ),
+                            const SizedBox(height: 10),
                             Text(
                               controller.notes[index].content!,
                               style: const TextStyle(
-                                  fontSize: 18, color: AppColor.textColor),
+                                fontSize: 18,
+                                color: AppColor.textColor,
+                              ),
                               overflow: TextOverflow.ellipsis,
                               maxLines: 2,
                             ),
-                            const SizedBox(
-                              height: 10,
-                            ),
+                            const SizedBox(height: 10),
                             Text(
                               controller.notes[index].dateTimeEdited!,
                               style: const TextStyle(
-                                  fontSize: 14, color: AppColor.textColor),
+                                fontSize: 14,
+                                color: AppColor.textColor,
+                              ),
                             ),
                           ],
                         ),
                       ),
-                      const SizedBox(
-                        width: 20,
-                      ),
+                      const SizedBox(width: 20),
                       InkWell(
                         onTap: () {
                           controller.favoriteNote(controller.notes[index].id!);
@@ -211,7 +218,10 @@ class HomePage extends StatelessWidget {
           ),
           Text(
             "Create your first note!",
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ],
       ),

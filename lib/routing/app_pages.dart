@@ -5,7 +5,6 @@ import 'package:notes_app/screens/add_new_note_page.dart';
 import 'package:notes_app/screens/edit_note_page.dart';
 import 'package:notes_app/screens/home_page.dart';
 import 'package:notes_app/screens/note_detail_page.dart';
-
 import 'app_routes.dart';
 
 var getRoutes = [

@@ -1,6 +1,7 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'dart:async';
 import 'dart:io';
-
 import 'package:notes_app/model/note_model.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
@@ -74,7 +75,8 @@ class DatabaseHelper {
 
   Future<List<Note>> getNoteList() async {
     Database db = await instance.database;
-    final List<Map<String, dynamic>> maps = await db.query(_tableName, orderBy: 'dateTimeCreated DESC');
+    final List<Map<String, dynamic>> maps =
+        await db.query(_tableName, orderBy: 'dateTimeCreated DESC');
     return List.generate(
       maps.length,
       (index) {

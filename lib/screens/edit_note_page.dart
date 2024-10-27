@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:notes_app/constants/colors.dart';
-
 import '../controller/note_controller.dart';
 
 class EditNotePage extends StatelessWidget {
   final NoteController controller = Get.find();
+
+  EditNotePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -80,16 +81,19 @@ class EditNotePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           controller.updateNote(
-              controller.notes[i].id!, controller.notes[i].dateTimeCreated!);
+            controller.notes[i].id!,
+            controller.notes[i].dateTimeCreated!,
+          );
         },
         label: const Text(
           "Save Note",
           textAlign: TextAlign.center,
           style: TextStyle(
-              fontSize: 16,
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.w500,
-              color: Colors.white),
+            fontSize: 16,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w500,
+            color: Colors.white,
+          ),
         ),
         icon: const Icon(
           Icons.save,
